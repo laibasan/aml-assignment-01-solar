@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plant 1 AC power predictor</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="wrap">
+    <header class="hero">
+      <div>
+        <p class="kicker">AI4003 · Plant 1 · Set B</p>
+        <h1>Hourly AC power from public weather</h1>
+        <p>
+          Enter Open-Meteo-style weather. The page loads saved least-squares weights
+          and does not retrain. Shortwave radiation is in W/m².
+        </p>
+      </div>
+      <div class="badge">Negative predictions clipped to 0 kW</div>
+    </header>
+
+    <main class="grid">
+      <section class="card">
+        <h2>Weather inputs</h2>
+        <div class="presets">
+          <button type="button" data-h="12" data-sw="800" data-t="32" data-c="20">Noon, clear</button>
+          <button type="button" data-h="12" data-sw="250" data-t="28" data-c="85">Noon, cloudy</button>
+          <button type="button" data-h="2" data-sw="0" data-t="24" data-c="10">Night</button>
+        </div>
+        <form method="post" id="pred-form">
+          <label>Hour of day <span class="hint">(0–23)</span>
+            <div class="row">
+              <input name="hour" id="hour" type="range" min="0" max="23" step="1" value="{{ form.hour }}">
+              <input id="hour_n" type="number" min="0" max="23" step="1" value="{{ form.hour }}" required>
+            </div>
+          </label>
+          <label>Shortwave radiation <span class="hint">(W/m²)</span>
+            <input name="sw_radiation" type="number" min="0" step="any" value="{{ form.sw_radiation }}" required>
+          </label>
+          <label>2 m temperature <span class="hint">(°C)</span>
+            <input name="temp_2m" type="number" step="any" value="{{ form.temp_2m }}" required>
+          </label>
+          <label>Cloud cover <span class="hint">(0–100 %)</span>
+            <input name="cloud_cover" type="number" min="0" max="100" step="any" value="{{ form.cloud_cover }}" required>
+          </label>
+          <button class="primary" type="submit">Predict AC power</button>
+        </form>
+      </section>
+
+      <section class="card output">
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% elif prediction is not none %}
+        <p class="kicker">Predicted AC power</p>
+        <p class="value">{{ "%.1f"|format(prediction) }} <span class="unit">kW</span></p>
+        <p class="meta">
+          Set B normal-equation model.
+          {% if pct_of_peak is not none %}
+          About {{ "%.1f"|format(pct_of_peak) }}% of the training-set peak
+          ({{ "%.0f"|format(peak) }} kW).
+          {% endif %}
+        </p>
+        {% else %}
+        <p class="placeholder">Choose weather on the left, then predict. Try the noon or night presets first.</p>
+        {% endif %}
+      </section>
+    </main>
+
+    <div class="people">
+      <span>Contributors</span>
+      {% for person in contributors %}
+      <a href="{{ person.url }}" target="_blank" rel="noopener">
+        <img src="{{ person.url }}.png?size=56" alt="{{ person.login }}">
+        {{ person.login }}
+      </a>
+      {% endfor %}
+    </div>
+    <p class="foot">laibasan · zohaib-2548 · Flask loads <code>results/saved_weights/set_b_normal.npz</code></p>
+  </div>
+  <script>
+    const hour = document.getElementById("hour");
+    const hourN = document.getElementById("hour_n");
+    const form = document.getElementById("pred-form");
+    hour.addEventListener("input", () => { hourN.value = hour.value; });
+    hourN.addEventListener("input", () => { hour.value = hourN.value; });
+    hourN.addEventListener("change", () => { hour.name = "hour"; hour.removeAttribute("name"); hourN.name = "hour"; });
+    form.addEventListener("submit", () => {
+      hourN.name = "hour";
+      hour.removeAttribute("name");
+    });
+    document.querySelectorAll(".presets button").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        hour.value = btn.dataset.h;
+        hourN.value = btn.dataset.h;
+        form.sw_radiation.value = btn.dataset.sw;
+        form.temp_2m.value = btn.dataset.t;
+        form.cloud_cover.value = btn.dataset.c;
+      });
+    });
+  </script>
+</body>
+</html>

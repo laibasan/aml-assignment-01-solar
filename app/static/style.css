@@ -1,0 +1,235 @@
+:root {
+  --bg: #f4efe4;
+  --ink: #1c2416;
+  --muted: #5c6754;
+  --card: #fffaf1;
+  --line: #e2d6c2;
+  --sun: #e09a2b;
+  --sun-dark: #c47b12;
+  --leaf: #2f6b3a;
+  --leaf-dark: #21512b;
+  --night: #243044;
+  --err: #8b2e1f;
+  --err-bg: #f8e4de;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 500px at 10% -10%, #ffe7b0 0%, transparent 55%),
+    radial-gradient(900px 400px at 110% 0%, #d7ead0 0%, transparent 50%),
+    var(--bg);
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-end;
+  margin-bottom: 22px;
+}
+
+.kicker {
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  color: var(--sun-dark);
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(1.7rem, 3vw, 2.35rem);
+  line-height: 1.15;
+  margin: 0;
+}
+
+.hero p {
+  margin: 8px 0 0;
+  color: var(--muted);
+  max-width: 38rem;
+}
+
+.badge {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 8px 14px;
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 18px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 22px;
+  box-shadow: 0 12px 30px rgba(28, 36, 22, 0.06);
+}
+
+.card h2 {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+}
+
+label {
+  display: block;
+  margin-top: 14px;
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.hint {
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+input[type="number"] {
+  width: 100%;
+  margin-top: 6px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  font: inherit;
+  background: #fff;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.row input[type="range"] {
+  flex: 1;
+}
+
+.presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 6px 0 4px;
+}
+
+.presets button,
+button.primary {
+  border: 0;
+  cursor: pointer;
+  font: inherit;
+}
+
+.presets button {
+  background: #efe4d0;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.presets button:hover { background: #e6d5b6; }
+
+button.primary {
+  margin-top: 18px;
+  width: 100%;
+  background: linear-gradient(180deg, var(--sun), var(--sun-dark));
+  color: #fff;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 700;
+}
+
+button.primary:hover { filter: brightness(1.05); }
+
+.output {
+  min-height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    linear-gradient(180deg, rgba(224,154,43,0.12), transparent 40%),
+    var(--card);
+}
+
+.output .value {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  margin: 8px 0 0;
+}
+
+.output .unit { font-size: 1.1rem; color: var(--muted); }
+
+.meta {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.error {
+  margin-top: 12px;
+  padding: 10px 12px;
+  background: var(--err-bg);
+  color: var(--err);
+  border-radius: 10px;
+}
+
+.placeholder {
+  color: var(--muted);
+}
+
+.people {
+  margin-top: 22px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.people a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 6px 12px 6px 6px;
+  font-weight: 600;
+}
+
+.people img {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
+.foot {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+@media (max-width: 800px) {
+  .grid, .hero { display: block; }
+  .badge { display: inline-block; margin-top: 12px; }
+}

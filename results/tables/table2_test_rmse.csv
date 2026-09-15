@@ -1,0 +1,7 @@
+solver,features,all_hours_rmse_kw,daytime_rmse_kw
+Normal equation,Set A,556.3900336742475,727.0393986625951
+"Batch GD (alpha=0.0001, iters=50000)",Set A,556.3900377946454,727.0394038975834
+"Stochastic GD (alpha=0.01, epochs=50)",Set A,563.2268782547128,737.2445064604832
+Normal equation,Set B,2632.9771571182746,3426.6739753597844
+"Batch GD (alpha=0.0001, iters=50000)",Set B,2632.9771571182755,3426.6739753597863
+"Stochastic GD (alpha=0.01, epochs=50)",Set B,2475.2121449206616,3135.5310103024217

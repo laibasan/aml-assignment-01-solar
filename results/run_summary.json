@@ -1,0 +1,72 @@
+{
+  "train_rows": 636,
+  "test_rows": 168,
+  "peak_train_ac": 27325.8986605,
+  "chosen_batch_alpha": 0.0001,
+  "chosen_sgd_alpha": 0.01,
+  "batch_alpha_labels": {
+    "1e-05": "approximately appropriate",
+    "0.0001": "approximately appropriate",
+    "0.001": "too large (cost increased)"
+  },
+  "sgd_alpha_labels": {
+    "0.0001": "approximately appropriate",
+    "0.001": "approximately appropriate",
+    "0.01": "approximately appropriate"
+  },
+  "max_diff_a_batch": 0.00011513730881063111,
+  "max_diff_a_sgd": 858.9868192948093,
+  "table2": [
+    {
+      "solver": "Normal equation",
+      "features": "Set A",
+      "all_hours_rmse_kw": 556.3900336742475,
+      "daytime_rmse_kw": 727.0393986625951
+    },
+    {
+      "solver": "Batch GD (alpha=0.0001, iters=50000)",
+      "features": "Set A",
+      "all_hours_rmse_kw": 556.3900377946454,
+      "daytime_rmse_kw": 727.0394038975834
+    },
+    {
+      "solver": "Stochastic GD (alpha=0.01, epochs=50)",
+      "features": "Set A",
+      "all_hours_rmse_kw": 563.2268782547128,
+      "daytime_rmse_kw": 737.2445064604832
+    },
+    {
+      "solver": "Normal equation",
+      "features": "Set B",
+      "all_hours_rmse_kw": 2632.9771571182746,
+      "daytime_rmse_kw": 3426.6739753597844
+    },
+    {
+      "solver": "Batch GD (alpha=0.0001, iters=50000)",
+      "features": "Set B",
+      "all_hours_rmse_kw": 2632.9771571182755,
+      "daytime_rmse_kw": 3426.6739753597863
+    },
+    {
+      "solver": "Stochastic GD (alpha=0.01, epochs=50)",
+      "features": "Set B",
+      "all_hours_rmse_kw": 2475.2121449206616,
+      "daytime_rmse_kw": 3135.5310103024217
+    }
+  ],
+  "theta_a_normal": [
+    6856.387167133448,
+    8268.070799484241,
+    -31.159143511074944,
+    -15.158484680649053,
+    -30.79555792746578,
+    -390.6355645233052
+  ],
+  "checks": {
+    "scaling_from_train_only": true,
+    "test_not_used_for_fit_or_alpha": true,
+    "predictions_clipped_at_zero": true,
+    "batch_cost_decreased_every_iteration": true,
+    "batch_matches_normal_two_decimals": true
+  }
+}

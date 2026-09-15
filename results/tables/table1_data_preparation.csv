@@ -1,0 +1,10 @@
+item,value
+Raw generation rows (Plant 1),68778
+Raw sensor rows (Plant 1),3182
+Timestamps in only one file,26
+Hourly rows after resampling,816
+Hourly rows with missing values,20
+Open-Meteo rows downloaded,816
+"Peak hour 2020-05-16: sensor=12, Open-Meteo=12",0
+"Peak hour 2020-05-17: sensor=11, Open-Meteo=12",1
+"Peak hour 2020-05-18: sensor=13, Open-Meteo=12",-1

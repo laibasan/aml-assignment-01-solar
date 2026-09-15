@@ -1,0 +1,8 @@
+{
+  "corr_ac_irradiation": 0.9974536048864336,
+  "corr_module_ambient": 0.8586493115912625,
+  "mean_ac_dc_ratio_daytime": 0.09770796941397664,
+  "peak_average_hour": 11,
+  "peak_average_ac": 21028.323064846078,
+  "night_mean_ac": 9.95476939004518
+}

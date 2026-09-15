@@ -1,0 +1,12 @@
+{
+  "raw_generation_rows": 68778,
+  "raw_sensor_rows": 3182,
+  "timestamps_only_generation": 1,
+  "timestamps_only_sensor": 25,
+  "timestamps_in_only_one_file": 26,
+  "hourly_rows_after_resample": 816,
+  "hourly_rows_with_missing_values": 20,
+  "hourly_rows_saved": 804,
+  "missing_rows_after_time_interpolation": 12,
+  "missing_handling": "Hourly means were computed from an outer merge of plant-level power and sensor readings. Rows with missing values were filled with time-based linear interpolation (limit=2 hours). Any remaining incomplete rows were dropped."
+}

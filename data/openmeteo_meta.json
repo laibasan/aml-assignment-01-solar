@@ -1,0 +1,27 @@
+{
+  "latitude": 14.82,
+  "longitude": 78.28,
+  "timezone": "Asia/Kolkata",
+  "openmeteo_rows": 816,
+  "peak_hours": [
+    {
+      "day": "2020-05-16",
+      "sensor_peak_hour": 12,
+      "openmeteo_peak_hour": 12,
+      "hour_shift": 0
+    },
+    {
+      "day": "2020-05-17",
+      "sensor_peak_hour": 11,
+      "openmeteo_peak_hour": 12,
+      "hour_shift": 1
+    },
+    {
+      "day": "2020-05-18",
+      "sensor_peak_hour": 13,
+      "openmeteo_peak_hour": 12,
+      "hour_shift": -1
+    }
+  ],
+  "timezone_abbreviation": "GMT+5:30"
+}
