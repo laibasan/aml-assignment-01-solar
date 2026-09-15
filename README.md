@@ -4,6 +4,8 @@ Course assignment for AI4003 Applied Machine Learning. Least-squares linear regr
 
 **Contributors:** [laibasan](https://github.com/laibasan) and [zohaib-2548](https://github.com/zohaib-2548)
 
+**Repository:** https://github.com/laibasan/aml-assignment-01-solar
+
 The practical question is how much prediction accuracy is lost when on-site irradiation and temperature sensors (Set A) are replaced by free Open-Meteo weather (Set B).
 
 ## Dataset
@@ -51,6 +53,8 @@ gunicorn wsgi:app --bind 0.0.0.0:$PORT
 ```
 
 Live URL: add it here after deploy.
+
+**GitHub:** https://github.com/laibasan/aml-assignment-01-solar
 
 Two-person GitHub + deploy click-path: `communication/github_two_accounts.md`.
 Blog draft: `communication/medium_blog.md`. LinkedIn draft: `communication/linkedin_post.md`.
